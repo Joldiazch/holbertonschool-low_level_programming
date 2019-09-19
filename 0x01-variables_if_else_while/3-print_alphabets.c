@@ -7,23 +7,22 @@
 **/
 int main(void)
 {
-	char c;
-	char b;
+	char c[] = "abcdefghijklmnopqrctvwxyz";
 
-	c = 'a';
+	int i = 0;
 
-	b = 'a';
-
-	while (c <= 'z')
+	while (c[i])
 	{
-		putchar(c);
-		c = c + 1;
+		putchar(c[i]);
+		i++;
 	}
-	while (b <= 'z')
+	i = 0;
+	while (c[i])
 	{
-		putchar(toupper(b));
-		b = b + 1;
+		putchar(toupper(c[i]));
+		i++;
 	}
 	putchar('\n');
 	return (0);
+
 }
