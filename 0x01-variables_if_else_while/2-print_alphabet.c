@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <time.h>
 #include <stdio.h>
 /**
 * main - Entry point print
@@ -14,8 +13,9 @@ int main(void)
 
 	while (c <= 'z')
 	{
-		putchar (c);
+		putchar(c);
 		c = c + 1;
 	}
-	putchar ('\n');
+	putchar('\n');
+	return (0);
 }
