@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <ctype.h>
 /**
 * main - Entry point print
 *
@@ -13,13 +12,13 @@ int main(void)
 	while (c <= 'z')
 	{
 		putchar(c);
-		c = c + 1;
+		c++;
 	}
-	c = 'a';
-	while (c <= 'z')
+	c = 'A';
+	while (c <= 'Z')
 	{
-		putchar(toupper(c));
-		c = c + 1;
+		putchar(c);
+		c++;
 	}
 	putchar('\n');
 	return (0);
