@@ -8,20 +8,18 @@
 **/
 int main(void)
 {
-	char c[] = "abcdefghijklmnopqrctvwxyz";
+	char c = 'a';
 
-	int i = 0;
-
-	while (c[i])
+	while (c <= 'z')
 	{
-		putchar(c[i]);
-		i++;
+		putchar(c);
+		c = c + 1;
 	}
-	i = 0;
-	while (c[i])
+	c = 'a';
+	while (c <= 'z')
 	{
-		putchar(toupper(c[i]));
-		i++;
+		putchar(toupper(c));
+		c = c + 1;
 	}
 	putchar('\n');
 	return (0);
