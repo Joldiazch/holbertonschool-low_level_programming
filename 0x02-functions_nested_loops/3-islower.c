@@ -1,8 +1,8 @@
 #include "holberton.h"
 /**
-* _islower - check if C character is a lower .
+* _islower - check if C character is a lower.
 *
-* @c: this is a character.
+* @c: this is a character for evaluatin.
 * Return: 1 if character is a lower or 0 in other case.
 *
 */
@@ -14,7 +14,6 @@ int _islower(int c)
 	}
 	else
 	{
-		i = 0;
 		return (0);
 	}
 }
