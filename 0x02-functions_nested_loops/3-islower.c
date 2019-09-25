@@ -7,7 +7,7 @@
 * Return: i an integer numer
 *
 */
-int _islower(int c);
+int _islower(int c)
 {
 	int i;
 
@@ -19,5 +19,5 @@ int _islower(int c);
 	{
 		i = 0;
 	}
-	return(i);
+	return (i);
 }
