@@ -1,13 +1,11 @@
 #include "holberton.h"
-
 /**
 * _islower: check if C character is a lower character.
 *
-* C: this is a character.
+* @c: this is a character.
 * Return: i an integer numer.
 *
 */
-
 int _islower(int c)
 {
 	int i;
