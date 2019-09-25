@@ -1,9 +1,8 @@
 #include "holberton.h"
 /**
-* main - Determina si i es positivo negativo o cero
-*
-* Return: Always 0 (sucess)
-**/
+* main - tests function that prints if integer is positive or negative
+* Return: 0
+*/
 int main(void)
 {
 	int i;
