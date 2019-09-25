@@ -1,23 +1,20 @@
 #include "holberton.h"
 /**
-* _islower: check if C character is a lower character.
+* _islower: check if C character is a lower .
 *
 * @c: this is a character.
-* Return: i an integer numer.
+* Return: 1 if character is a lower or 0 in other case.
 *
 */
 int _islower(int c)
 {
-	int i;
-
 	if ((c >= 97) && (c <= 122))
 	{
-		i = 1;
-		return (i);
+		return (1);
 	}
 	else
 	{
 		i = 0;
-		return (i);
+		return (0);
 	}
 }
