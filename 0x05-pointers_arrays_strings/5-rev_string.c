@@ -16,8 +16,16 @@ void rev_string(char *s)
 	{
 		i++;
 	}
+	if ((i % 2) == 0)
+	{
+		c = (i / 2);
+	}
+	else
+	{
+		c = (i / 2) + 1;
+	}
+
 	i--;
-	c = (i / 2);
 
 	while (i >= c)
 	{
