@@ -1,8 +1,8 @@
 #include "holberton.h"
 
 /**
-* puts_half - invierte el ordel del estring al cual apunta *s
-* @s: pointer of string
+* puts_half - imprime la mitad de la cadena a la que apunta *s
+* @str: pointer of string
 * Return: Void.
 *
 */
@@ -17,11 +17,11 @@ void puts_half(char *str)
 	}
 	if (i % 2)
 	{
-		c = (i - 1) / 2 ;
+		c = (i - 1) / 2;
 	}
 	else
 	{
-		c = i / 2 ;
+		c = i / 2;
 	}
 	while (*(str + c) != 0)
 	{
