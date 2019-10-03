@@ -7,6 +7,7 @@
 * @n: numero de bytes
 * Return: void.
 *
+*
 */
 char *_strncpy(char *dest, char *src, int n)
 {
