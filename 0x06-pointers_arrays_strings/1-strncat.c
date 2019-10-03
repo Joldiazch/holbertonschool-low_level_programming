@@ -6,7 +6,6 @@
 * @src: entrada
 * @n: numero de bytes
 * Return: void.
-*
 */
 char *_strncat(char *dest, char *src, int n)
 {
