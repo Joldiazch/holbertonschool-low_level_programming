@@ -10,6 +10,7 @@ void reverse_array(int *a, int n)
 {
 	int i = (n - 1), k = (n / 2);
 	int p = 0, p2 = 0, c = 0;
+
 	while (i >= k)
 	{
 		p = *(a + c);
