@@ -8,6 +8,7 @@
 char *string_toupper(char *a)
 {
 	char *k;
+
 	k = a;
 	while (*a)
 	{
