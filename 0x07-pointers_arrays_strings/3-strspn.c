@@ -1,20 +1,29 @@
 #include "holberton.h"
 
 /**
-* *_strchr - copies the first n characters of the *src to dest
+* _strspn - cuenta cuincidencias de accept en s
 * @s: origen
-* @c: caracter
+* @accept: cadena a comparar
 * Return: void.
 */
-char *_strchr(char *s, char c)
+unsigned int _strspn(char *s, char *accept)
 {
-	while (*s)
+	char *a;
+	a = s;
+	unsigned int cont = 0;
+
+	while (*accept)
 	{
-		if (*s == c)
+		while (*s)
 		{
-			return (s);
+			if (*s == *accept)
+			{
+				cont++;
+			}
+			s++;
 		}
-		s++;
+		s = a;
+		accept++;
 	}
-	return ('\0');
+	return (cont);
 }
