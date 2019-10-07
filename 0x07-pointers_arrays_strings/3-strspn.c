@@ -8,22 +8,29 @@
 */
 unsigned int _strspn(char *s, char *accept)
 {
+	int c = 0, c2 = 0;
 	char *a;
-	a = s;
-	unsigned int cont = 0;
 
-	while (*accept)
+	a = accept;
+	while (*s)
 	{
-		while (*s)
+		while (*accept)
 		{
-			if (*s == *accept)
+			if (*accept == *s)
 			{
-				cont++;
+				c++;
+				break;
 			}
-			s++;
+			accept++;
+		}		
+		if (c == 0)
+		{
+			break;
 		}
-		s = a;
-		accept++;
+		c2++;
+		accept = a;
+		c = 0;
+		s++;
 	}
-	return (cont);
+	return (c2);
 }
