@@ -19,17 +19,12 @@ char *_strpbrk(char *s, char *accept)
 			if (*accept == *s)
 			{
 				c++;
-				break;
+				return (s);
 			}
 			accept++;
 		}
-		if (c != 0)
-		{
-			break;
-		}
 		accept = a;
-		c = 0;
 		s++;
 	}
-	return (s);
+	return ('\0');
 }
