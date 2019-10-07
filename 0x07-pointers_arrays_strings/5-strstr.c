@@ -11,28 +11,35 @@ char *_strstr(char *haystack, char *needle)
 	int i = 0, cont = 0;
 	char *k;
 
-	while (*haystack)
+	if (*needle != '\0')
 	{
-		if (*haystack == *needle)
+		while (*haystack)
 		{
-			k = haystack;
-			while (*needle)
+			if (*haystack == *needle)
 			{
-				if (*needle == *haystack)
+				k = haystack;
+				while (*needle)
 				{
-					cont++;
+					if (*needle == *haystack)
+					{
+						cont++;
+					}
+					needle++;
+					haystack++;
+					i++;
 				}
-				needle++;
-				haystack++;
-				i++;
+				if (cont == i)
+				{
+					return (k);
+				}
+				haystack = k;
 			}
-			if (cont == i)
-			{
-				return (k);
-			}
-			haystack = k;
+			haystack++;
 		}
-		haystack++;
 	}
-	return (haystack);
+	else
+	{
+		return (haystack);
+	}
+	return ('\0');
 }
