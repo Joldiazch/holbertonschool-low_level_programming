@@ -10,6 +10,8 @@ char *_strstr(char *haystack, char *needle)
 {
 	int i = 0, cont = 0;
 	char *k;
+	char *m;
+	m = needle;
 
 	if (*needle != '\0')
 	{
@@ -23,9 +25,13 @@ char *_strstr(char *haystack, char *needle)
 					if (*needle == *haystack)
 					{
 						cont++;
+						needle++;
+						haystack++;
 					}
-					needle++;
-					haystack++;
+					else 
+					{
+						needle = m;
+					}
 					i++;
 				}
 				if (cont == i)
