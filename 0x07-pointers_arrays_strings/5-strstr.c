@@ -25,13 +25,9 @@ char *_strstr(char *haystack, char *needle)
 					if (*needle == *haystack)
 					{
 						cont++;
-						needle++;
-						haystack++;
 					}
-					else 
-					{
-						needle = m;
-					}
+					needle++;
+					haystack++;
 					i++;
 				}
 				if (cont == i)
