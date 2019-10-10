@@ -21,34 +21,45 @@ int _strlen_recursion(char *s)
 }
 
 /**
+* veri - verifica si los caracteres son iguales
+* @len: pointer to string
+* @i: iterador
+* @p: pointer
+* Return: void.
+*/
+int veri(int len, int i, char *p)
+{
+	if ((*(p + i) == *(p + len)) && (i < len))
+	{
+		len--;
+		i++;
+		veri(len, i, p);
+	}
+	else if (i >= len)
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+	return (1);
+}
+
+/**
 * is_palindrome - retorna la raiz de n
 * @s: pinter to string
 * Return: .
 */
 int is_palindrome(char *s)
 {
-	int len, i, c = 0;
-	char *p;
+	int len;
 
-	p = s;
 	if (*s == '\0')
 	{
 		return (1);
 	}
 	len = _strlen_recursion(s);
 	len--;
-	for (i = len; i > len / 2; i--)
-	{
-		if (*p == *(s + i))
-		{
-			c++;
-		}
-		p++;
-	}
-	len++;
-	if (c == len / 2)
-	{
-		return (1);
-	}
-	return (0);
+	return (veri(len, 0, s));
 }
