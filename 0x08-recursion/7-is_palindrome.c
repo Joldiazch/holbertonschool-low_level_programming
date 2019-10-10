@@ -33,7 +33,7 @@ int veri(int len, int i, char *p)
 	{
 		len--;
 		i++;
-		veri(len, i, p);
+		return (veri(len, i, p));
 	}
 	else if (i >= len)
 	{
@@ -43,7 +43,6 @@ int veri(int len, int i, char *p)
 	{
 		return (0);
 	}
-	return (1);
 }
 
 /**
