@@ -3,7 +3,7 @@
 /**
 * main - print mayor factor primo de un numero..
 *
-* Return: 0.
+* Return: 0 integer number.
 *
 */
 int main(void)
