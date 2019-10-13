@@ -9,19 +9,20 @@
 */
 int main(int argc, char **argv)
 {
-	int i, sum;
+	int i, k = 0, sum;
 
 	for (i = 1; i < argc; i++)
 	{
-		if (**(argv + i) >= 48 && **(argv + i) <= 57)
+		while (argv[i][k])
 		{
-			sum += atoi(*(argv + i));
+			if (!(argv[i][k] >= 48 && argv[i][k] <= 57))
+			{
+				printf("Error\n");
+				return (1);
+			}
+			k++;
 		}
-		else
-		{
-			printf("Error\n");
-			return (1);
-		}
+		sum += atoi(*(argv + i));
 	}
 	printf("%d\n", sum);
 	return (0);
