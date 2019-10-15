@@ -4,7 +4,7 @@
 /**
  * *str_concat - creates an array of chars.
  * @s1: pointer to string
- * @ss: pointer to string
+ * @s2: pointer to string
  * Return: char
  */
 char *str_concat(char *s1, char *s2)
@@ -33,7 +33,7 @@ char *str_concat(char *s1, char *s2)
 	{
 		return (NULL);
 	}
-	for (j = 0; j <= i; j++)
+	for (j = 0; j < i; j++)
 	{
 		*(p + j) = *(s1 + j);
 	}
