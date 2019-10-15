@@ -25,3 +25,4 @@ char *_strstr(char *haystack, char *needle);
 #endif /* HOLBERTON_H */
 
 char *create_array(unsigned int size, char c);
+char *_strdup(char *str);
