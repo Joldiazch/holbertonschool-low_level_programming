@@ -1,34 +1,32 @@
+#include "holberton.h"
 #include <stdlib.h>
 
 /**
  * *_strdup - creates an array of chars.
- * @str: pointer to string.
- * Return: N
+ * @str: pointer to string
+ * Return: char
  */
 char *_strdup(char *str)
 {
+	int i = 0, k;
+	char *p;
+
 	if (str == NULL)
 	{
 		return (NULL);
 	}
-	char *p;
-	int i = 0;
-
 	while (*(str + i))
 	{
 		i++;
 	}
-	p = malloc(sizeof(char) * i);
+	p = malloc(i);
 	if (p == NULL)
 	{
 		return (NULL);
 	}
-	i = 0;
-	while (*(str + i))
+	for (k = 0; k <= i; k++)
 	{
-		*(p + i) = *(str + i);
-		i++;
+		*(p + k) = *(str + k);
 	}
-	*(p + i) = *(str + i);
 	return (p);
 }
