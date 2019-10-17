@@ -2,16 +2,16 @@
 #include <stdlib.h>
 
 /**
- * *str_concat - creates an array of chars.
+ * *string_nconcat - concatena dos arrays.
  * @s1: pointer to string
  * @s2: pointer to string
+ * @n: numero de bytes.
  * Return: char
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int t = 0, i = 0, k = 0, j, m = 0;
+	unsigned int i = 0, k = 0, j, m = 0;
 	char *p;
-	char *e;
 
 	if (s2 == NULL)
 	{
@@ -29,17 +29,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		k++;
 	}
-	if (n > k)
+	if (n >= k - 1)
 	{
 		n = k;
 	}
-	while (t <= n)
-	{
-		*(e + t) = *(s2 + t);
-		t++;
-	}
-	*(e + t) = '\0'; 
-	p = malloc(i + t + 1);
+	p = malloc(i + n + 1);
 	if (p == NULL)
 	{
 		return (NULL);
@@ -48,12 +42,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		*(p + j) = *(s1 + j);
 	}
-	for (j = i; *(e + m); j++)
+	for (j = i; j < i + n; j++)
 	{
-		*(p + j) = *(e + m);
+		*(p + j) = *(s2 + m);
 		m++;
 	}
 	j++;
-	*(p + j) = *(e + m);
+	*(p + j) = '\0';
 	return (p);
 }
