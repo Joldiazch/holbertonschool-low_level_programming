@@ -2,11 +2,11 @@
 #include <stdlib.h>
 
 /**
- * *_calloc - calloc funtion.
- * @nmemb: pointer to string
- * @size: pointer to string
- * Return: void
- */
+* *_calloc - calloc funtion.
+* @nmemb: pointer to string
+* @size: pointer to string
+* Return: void
+*/
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
@@ -25,7 +25,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	for (i = 0; i < (nmemb * size); i++)
 	{
 		*(p + i) = 0;
-
 	}
 	return (p);
 }
