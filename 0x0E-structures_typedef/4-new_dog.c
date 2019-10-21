@@ -7,7 +7,6 @@
 * @owner: owner of dog.
 * Return: new_dog estructur
 */
-
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	int l1 = 0, l2 = 0;
