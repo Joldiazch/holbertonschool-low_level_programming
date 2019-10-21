@@ -10,10 +10,6 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	int l1 = 0, l2 = 0;
-	char *nombre, *dueno;
-
-	nombre = name;
-	dueno = owner;
 	dog_t *new_dog;
 
 	while (*(name + l1))
@@ -29,8 +25,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		return (NULL);
 	}
-	(*new_dog).name = nombre;
+	(*new_dog).name = name;
 	(*new_dog).age = age;
-	(*new_dog).owner = dueno;
+	(*new_dog).owner = owner;
 	return (new_dog);
 }
