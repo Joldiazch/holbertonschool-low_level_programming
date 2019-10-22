@@ -40,10 +40,10 @@ dog_t *new_dog(char *name, float age, char *owner)
 			free(new_dog);
 			return (NULL);
 		}
-		for (x = 0; x < l1; x++)
+		for (x = 0; x <= l1; x++)
 			(*new_dog).name[x] = name[x];
 		(*new_dog).age = age;
-		for (x = 0; x < l2; x++)
+		for (x = 0; x <= l2; x++)
 			(*new_dog).owner[x] = owner[x];
 		return (new_dog);
 	}
