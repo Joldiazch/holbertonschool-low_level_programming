@@ -10,11 +10,8 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	int l1 = 0, l2 = 0;
-	char *nombre = NULL, *dueno = NULL;
 	dog_t *new_dog;
 	
-	nombre = name;
-	dueno = owner;
 	if (name != NULL && owner != NULL)
 	{
 		while (*(name + l1))
@@ -30,22 +27,22 @@ dog_t *new_dog(char *name, float age, char *owner)
 		{
 			return (NULL);
 		}
-		(*new_dog).name = malloc(l1);
+		(*new_dog).name = malloc(l1 + 1);
 		if ((*new_dog).name == NULL)
 		{
 			free(new_dog);
 			return (NULL);
 		}
-		(*new_dog).owner = malloc(l2);
+		(*new_dog).owner = malloc(l2 + 1);
 		if ((*new_dog).owner == NULL)
 		{
 			free((*new_dog).name);
 			free(new_dog);
 			return (NULL);
 		}
-		(*new_dog).name = nombre;
+		(*new_dog).name = name;
 		(*new_dog).age = age;
-		(*new_dog).owner = dueno;
+		(*new_dog).owner = owner;
 		return (new_dog);
 	}
 	return (NULL);
