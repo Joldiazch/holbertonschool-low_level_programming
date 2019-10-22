@@ -1,6 +1,27 @@
 #include "dog.h"
 #include <stdlib.h>
-#include <string.h>
+#include "holberton.h"
+#include <stdio.h>
+
+/**
+  * *_strcpy - copies pointed src, to the pointed to by dest.
+  * @dest: pointer to paste
+  * @src: pointer to copy
+  * Return: Void.
+  *
+  */
+char *_strcpy(char *dest, char *src)
+{
+	int i = 0;
+
+	while (*(src + i) != 0)
+	{
+		*(dest + i) = *(src + i);
+		i++;
+	}
+	*(dest + i) = *(src + i);
+	return (dest);
+}
 /**
 * *new_dog - create new dog
 * @name: name of dog
@@ -41,9 +62,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 			free(new_dog);
 			return (NULL);
 		}
-		strcpy((*new_dog).name, name);
+		_strcpy((*new_dog).name, name);
 		(*new_dog).age = age;
-		strcpy((*new_dog).owner, owner);
+		_strcpy((*new_dog).owner, owner);
 	}
 	return (new_dog);
 }
