@@ -1,6 +1,6 @@
 #include "dog.h"
 #include <stdlib.h>
-#include <stdio.h>
+#include <string.h>
 /**
 * *new_dog - create new dog
 * @name: name of dog
@@ -41,9 +41,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 			free(new_dog);
 			return (NULL);
 		}
-		(*new_dog).name = name;
+		strcpy((*new_dog).name, name);
 		(*new_dog).age = age;
-		(*new_dog).owner = owner;
+		strcpy((*new_dog).owner, owner);
 	}
 	return (new_dog);
 }
