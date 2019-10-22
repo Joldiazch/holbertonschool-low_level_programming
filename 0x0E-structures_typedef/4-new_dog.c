@@ -9,7 +9,7 @@
 */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	int l1 = 0, l2 = 0;
+	int l1 = 0, l2 = 0, i = 0;
 	dog_t *new_dog;
 
 	if (name != NULL && owner != NULL)
@@ -40,9 +40,20 @@ dog_t *new_dog(char *name, float age, char *owner)
 			free(new_dog);
 			return (NULL);
 		}
-		(*new_dog).name = name;
+		while (name[i])
+		{
+			(*new_dog).name[i] = name[i];
+			i++;
+		}
+		(*new_dog).name[i] = name[i];
 		(*new_dog).age = age;
-		(*new_dog).owner = owner;
+		i = 0;
+		while (owner[i])
+		{
+			(*new_dog).owner[i] = owner[i];
+			i++;
+		}
+		(*new_dog).owner[i] = owner[i];
 	}
 	return (new_dog);
 }
