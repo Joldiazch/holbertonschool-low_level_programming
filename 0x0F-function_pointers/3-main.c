@@ -1,33 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "3-calc.h"
 /**
-* int_index - searches for an integer..
-* @array: parray whit elemets.
-* @size: size of arrays
-* @cmp: funtion que toma a cada elemento de array
-* Return: void
+* main - return the resultado the operation..
+* @argv: array of arrays whit input of operation.
+* @argc: size of argv
+* Return: integer result
 */
 
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
+	int (*resul)(int, int);
+
 	if (argc != 4)
 	{
-		printf("ERROR");
+		printf("Error\n");
+		exit(98);
 	}
-	if ((argv[2][0] == '+' || argv[2][0] == '-' || argv[2][0] == '*' || argv[2][0] == '/' || argv[2][0] == '%') && (strlen(argv[2]) == 1))
+	if ((argv[2][0] == '+' || argv[2][0] == '-' || argv[2][0] == '*' ||
+	argv[2][0] == '/' || argv[2][0] == '%') && (strlen(argv[2]) == 1))
 	{
 		if ((argv[2][0] == '/' || argv[2][0] == '%') && (argv[2][0] == '0'))
 		{
 			printf("Error\n");
-			exit(99);
+			exit(100);
 		}
-
 	}
 	else
 	{
-		printf("ERROR");
+		printf("Error\n");
+		exit(99);
 	}
-	(get_op_func(argv[2][0]))(atoi(argv[1][0]), atoi(argv[3][0]));
+	resul = get_op_func(argv[2]);
+	printf("%d\n", resul(atoi(argv[1]), atoi(argv[3])));
 	return (0);
 }
