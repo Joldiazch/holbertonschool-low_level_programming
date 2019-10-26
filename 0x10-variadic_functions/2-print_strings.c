@@ -29,11 +29,13 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		va_start(str, n);
 		s = va_arg(str, char *);
 		printf("%s", (!s) ? ("(nil)") : (s));
-		for (i = 1; i < n; i++)
+		for (i = 1; i < n - 1; i++)
 		{
 			s = va_arg(str, char *);
 			printf("%s%s", separator, (!s) ? ("(nil)") : (s));
 		}
+		s = va_arg(str, char *);
+		printf("%s", (!s) ? ("(nil)") : (s));
 		printf("\n");
 		va_end(str);
 	}
