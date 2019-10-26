@@ -53,7 +53,7 @@ void print_all(const char * const format, ...)
 	va_list str;
 	
 	op_t ops[] = {
-        {"c",printChar},
+        {"c", printChar},
         {"i", printInt},
         {"f", printFloat},
         {"s", printStr},
