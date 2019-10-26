@@ -27,19 +27,20 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	else
 	{
 		va_start(str, n);
-		s = va_arg(str, char *);
-		printf("%s", (!s) ? ("(nil)") : (s));
-		for (i = 1; i < n - 1; i++)
+		for (i = 0; i < n; i++)
 		{
-			s = va_arg(str, char *);
-			printf("%s%s", separator, (!s) ? ("(nil)") : (s));
+			if (i > 0 && i < n - 1)
+			{
+				s = va_arg(str, char *);
+				printf("%s%s", separator, (!s) ? ("(nil)") : (s));
+			}
+			else
+			{
+				s = va_arg(str, char *);
+				printf("%s", (!s) ? ("(nil)") : (s));
+			}
 		}
-		if (n)
-		{
-			s = va_arg(str, char *);
-			printf("%s", (!s) ? ("(nil)") : (s));
-			printf("\n");
-			va_end(str);
-		}
+		printf("\n");
+		va_end(str);
 	}
 }
