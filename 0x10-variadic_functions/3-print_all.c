@@ -66,20 +66,23 @@ void print_all(const char * const format, ...)
 	{"s", printStr},
 	{NULL, NULL}
 	};
-	int i = 0, j = 0;
+	int i = 0, j = 0, k = 0;
 
 	va_start(str, format);
 	while (format[i])
 	{
+		switch (k)
+		{
+			case 1:
+				printf(", ");
+		}
+		k = 0;
 		while ((ops[j]).op)
 		{
 			if (*(ops[j]).op == format[i])
 			{
+				k = 1;
 				(ops[j]).f(str);
-				if (format[i + 1])
-				{
-					printf(", ");
-				}
 				break;
 			}
 			j++;
