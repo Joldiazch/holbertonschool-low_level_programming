@@ -4,8 +4,8 @@
 #include "variadic_functions.h"
 
 /**
-* print_strings - returns the sum of all its parameters
-* @n: strero de streros ingresados.
+* printChar - print character.
+* @c: character to print.
 */
 
 void printChar(va_list c)
@@ -14,8 +14,8 @@ void printChar(va_list c)
 }
 
 /**
-* print_int - returns the sum of all its parameters
-* @n: strero de streros ingresados.
+* printInt - print integer.
+* @c: integer to print.
 */
 
 void printInt(va_list c)
@@ -23,8 +23,8 @@ void printInt(va_list c)
 	printf("%d", va_arg(c, int));
 }
 /**
-* print_int - returns the sum of all its parameters
-* @n: strero de streros ingresados.
+* printFloat - print float
+* @c: float to print.
 */
 
 void printFloat(va_list c)
@@ -33,33 +33,36 @@ void printFloat(va_list c)
 }
 
 /**
-* print_int - returns the sum of all its parameters
-* @n: strero de streros ingresados.
+* printStr - print string.
+* @c: string to print.
 */
 
 void printStr(va_list c)
 {
-	printf("%s", va_arg(c, char *));
+	char *s;
+
+	s = va_arg(c, char *);
+	printf("%s", !s ? "(nil)" : s);
 }
 
 /**
-* print_strings - returns the sum of all its parameters
-* @n: strero de streros ingresados.
-* @separator: strero de streros ingresados.
+* print_all - print all format c, i, f, s.
+* @format: input format to print.
 */
 
 void print_all(const char * const format, ...)
 {
 	va_list str;
-	
+
 	op_t ops[] = {
-        {"c", printChar},
-        {"i", printInt},
-        {"f", printFloat},
-        {"s", printStr},
-        {NULL, NULL}
-    };
-    int i = 0, j = 0;
+	{"c", printChar},
+	{"i", printInt},
+	{"f", printFloat},
+	{"s", printStr},
+	{NULL, NULL}
+	};
+	int i = 0, j = 0;
+
 	va_start(str, format);
 	while (format[i])
 	{
