@@ -43,6 +43,7 @@ void printStr(va_list c)
 
 	s = va_arg(c, char *);
 	printf("%s", !s ? "(nil)" : s);
+	return;
 }
 
 /**
