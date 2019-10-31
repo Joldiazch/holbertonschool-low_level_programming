@@ -8,16 +8,16 @@
 */
 size_t list_len(const list_t *h)
 {
-	size_t numNodos = 0;
+	unsigned int numElements = 0;
 
 	if (h)
 	{
 		while (h->next)
 		{
 			h = h->next;
-			numNodos++;
+			numElements++;
 		}
-		return (numNodos + 1);
+		return (numElements + 1);
 	}
 	return (0);
 }
