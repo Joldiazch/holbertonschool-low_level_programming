@@ -18,7 +18,7 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	}
 	headTemp->str = strdup(str);
-	while (str[len] && headTemp->str)
+	while (str[len])
 	{
 		len++;
 	}
