@@ -7,13 +7,16 @@
 */
 void free_listint(listint_t *head)
 {
-	if (!(head->next))
+	if (head)
 	{
-		free(head);
-	}
-	else
-	{
-		free_listint(head->next);
-		free(head);
+		if (!(head->next))
+		{
+			free(head);
+		}
+		else
+		{
+			free_listint(head->next);
+			free(head);
+		}
 	}
 }
