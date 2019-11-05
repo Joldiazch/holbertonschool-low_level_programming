@@ -1,8 +1,9 @@
 #include "lists.h"
 /**
-* free_listint - print all elements of a list staring in head.
+* get_nodeint_at_index - print all elements of a list staring in head.
 * @head: pointer for head of lements.
-* Return: number of nods in list.
+* @index: index positon of node to get.
+* Return: pointer to node to get.
 *
 */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
@@ -20,18 +21,21 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 	return (NULL);
 }
 /**
-* free_listint - print all elements of a list staring in head.
+* insert_nodeint_at_index - insert node in index position.
 * @head: pointer for head of lements.
-* Return: number of nods in list.
+* @idx: index positon of node to add.
+* @n: value to save in new node.
+* Return: pointer to new node.
 *
 */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *node, *newnode, *temp;
 	unsigned int i = 0;
+
 	if ((*head))
 	{
-		node= get_nodeint_at_index((*head), idx);
+		node = get_nodeint_at_index((*head), idx);
 		newnode = malloc(sizeof(listint_t));
 		if (!newnode || !node)
 		{

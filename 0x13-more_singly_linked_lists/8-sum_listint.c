@@ -1,8 +1,8 @@
 #include "lists.h"
 /**
-* free_listint - print all elements of a list staring in head.
+* sum_listint - suma all n in every node of the list.
 * @head: pointer for head of lements.
-* Return: number of nods in list.
+* Return: suma.
 *
 */
 int sum_listint(listint_t *head)

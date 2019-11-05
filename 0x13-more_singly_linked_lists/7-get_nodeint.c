@@ -1,8 +1,9 @@
 #include "lists.h"
 /**
-* free_listint - print all elements of a list staring in head.
+* get_nodeint_at_index - return node in position inddex staring in 0.
 * @head: pointer for head of lements.
-* Return: number of nods in list.
+* @index: index of node to get.
+* Return: pointer to node.
 *
 */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
