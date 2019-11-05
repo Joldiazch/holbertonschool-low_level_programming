@@ -7,14 +7,17 @@
 */
 void free_listint(listint_t *head)
 {
-	if (!(head->next))
+	if (head)
 	{
-		free(head);
-	}
-	else
-	{
-		free_listint(head->next);
-		free(head);
+		if (!(head->next))
+		{
+			free(head);
+		}
+		else
+		{
+			free_listint(head->next);
+			free(head);
+		}
 	}
 }
 /**
@@ -25,7 +28,7 @@ void free_listint(listint_t *head)
 */
 void free_listint2(listint_t **head)
 {
-	if ((*head))
+	if (head)
 	{
 		free_listint((*head));
 		(*head) = NULL;
