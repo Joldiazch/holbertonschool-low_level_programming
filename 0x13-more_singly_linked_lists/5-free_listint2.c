@@ -18,7 +18,7 @@ void free_listint(listint_t *head)
 	}
 }
 /**
-* free_listint - print all elements of a list staring in head.
+* free_listint2 - print all elements of a list staring in head.
 * @head: pointer for head of lements.
 * Return: number of nods in list.
 *
