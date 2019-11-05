@@ -1,8 +1,56 @@
 #include "lists.h"
+
 /**
-* free_listint - print all elements of a list staring in head.
+* listint_len - print all elements of a list staring in head.
+* @h: pointer for head of lements.
+* Return: number of nods in list.
+*
+*/
+size_t listint_len(const listint_t *h)
+{
+	unsigned int numNodos = 0;
+
+	if (h)
+	{
+		while (h->next)
+		{
+			h = h->next;
+			numNodos++;
+		}
+		return (numNodos + 1);
+	}
+	return (0);
+}
+/**
+* pop_listint - print all elements of a list staring in head.
 * @head: pointer for head of lements.
 * Return: number of nods in list.
+*
+*/
+int pop_listint(listint_t **head)
+{
+	if (head)
+	{
+		if ((*head))
+		{
+			int ntemp;
+			listint_t *headTemp;
+
+			headTemp = (*head);
+			ntemp = (*head)->n;
+			(*head) = (*head)->next;
+			free(headTemp);
+			return (ntemp);
+		}
+		return (0);
+	}
+	return (0);
+}
+/**
+* get_nodeint_at_index - print all elements of a list staring in head.
+* @head: pointer for head of lements.
+* @index: index of node.
+* Return: node to get.
 *
 */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
@@ -20,33 +68,30 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 	return (NULL);
 }
 /**
-* free_listint - print all elements of a list staring in head.
+* delete_nodeint_at_index - print all elements of a list staring in head.
 * @head: pointer for head of lements.
-* Return: number of nods in list.
+* @index: index of node to delete.
+* Return: 1 if done -1 if error.
 *
 */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	listint_t *node, *temp;
 	unsigned int i = 0;
-	if ((*head))
+
+	if ((*head) && head && (index <= (listint_len(*head) - 1)))
 	{
-		node= get_nodeint_at_index((*head), index);
-		if (!node)
+		if (index == 0)
 		{
-			return (-1);
+			pop_listint(head);
+			return (1);
 		}
+		node = get_nodeint_at_index((*head), index);
 		temp = (*head);
 		while (i < (index - 1))
 		{
 			(*head) = (*head)->next;
 			i++;
-		}
-		if ((*head) == node)
-		{
-			(*head) = (*head)->next;
-			free(node);
-			return (1);
 		}
 		(*head)->next = node->next;
 		free(node);
