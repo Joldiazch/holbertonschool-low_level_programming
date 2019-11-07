@@ -14,7 +14,7 @@ unsigned int binary(const char *b, int len)
 	{
 		if (b[i] == '1')
 		{
-			resp += 1<<(len - i - 1);
+			resp += 1 << (len - i - 1);
 		}
 		i++;
 	}
