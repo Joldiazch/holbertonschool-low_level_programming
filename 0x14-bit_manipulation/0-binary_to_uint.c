@@ -1,22 +1,5 @@
 #include "holberton.h"
 /**
-* pow - return the power of base to expo.
-* @base: base to power.
-* @expo: exponente.
-* Return: power.
-*
-*/
-unsigned int poww(unsigned int base, unsigned int expo)
-{
-	unsigned int i = 0;
-
-	for (i = 1; i < expo; i++)
-	{
-		base *= 2;
-	}
-	return (base);
-}
-/**
 * binary - print all elements of a list staring in head.
 * @b: pointer for head of lements.
 * @len: lengeth of array
@@ -31,7 +14,7 @@ unsigned int binary(const char *b, int len)
 	{
 		if (b[i] == '1')
 		{
-			resp += poww(2, (len - i - 1));
+			resp += 1<<(len - i - 1);
 		}
 		i++;
 	}
