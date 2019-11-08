@@ -8,14 +8,13 @@
 */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	if (!*n)
-	{
-		return (1);
-	}
-	if (index > 63)
+	if (index > 63 || !(*n >> index))
 	{
 		return (-1);
 	}
-	*n -= (1 << index);
+	if ((*n >> index) & 1)
+	{
+		*n -= (1 << index);
+	}
 	return (1);
 }
