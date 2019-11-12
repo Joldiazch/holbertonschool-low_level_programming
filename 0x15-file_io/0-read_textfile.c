@@ -26,15 +26,17 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	r = read(fb, buf, letters);
 	if (r < 0)
 	{
+		free(buf);
 		return (0);
 	}
 
 	w = write(STDOUT_FILENO, buf, r);
-	if (w < -1)
+	if (w < 0)
 	{
+		free(buf);
 		return (0);
 	}
 	free(buf);
-
-	return (r);
+	close(fb);
+	return (w);
 }
