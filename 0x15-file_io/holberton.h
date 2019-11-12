@@ -1,9 +1,9 @@
 #ifndef holberton_h
 #define holberton_h
-#include<stdio.h> 
-#include<string.h> 
-#include<unistd.h> 
-#include<fcntl.h> 
+#include<stdio.h>
+#include<string.h>
+#include<unistd.h>
+#include<fcntl.h>
 #include <math.h>
 #include <stdlib.h>
 #include <sys/types.h>
