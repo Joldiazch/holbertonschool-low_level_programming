@@ -6,7 +6,7 @@
 #include <string.h>
 
 #define BUFSIZE 1024
-#define DELIM " \t\r\n\a"
+#define DELIM " "
 char **split_line(char *line)
 {
   int bufsize = BUFSIZE, position = 0;
@@ -18,7 +18,7 @@ char **split_line(char *line)
     exit(1);
   }
 
-  token = strtok(line, DELIM);
+  token = strtok(line, " ");
   while (token != NULL) {
     tokens[position] = token;
     position++;
@@ -40,11 +40,9 @@ char **split_line(char *line)
 
 int main()
 {
-	char *buffer;
-    char **argv;
-    /* char *argv2[] = {"/bin/ls","-l","/tmp",NULL}; */
+	char *buffer, **argv = NULL;
     size_t bufsize = 1024;
-	pid_t pid;
+	int i = 0, j =0;
 
 	buffer = malloc(bufsize * sizeof(char));
 	if( buffer == NULL)
@@ -53,26 +51,13 @@ int main()
         exit(1);
     }
 
-	while (1)
+	getline(&buffer, &bufsize, stdin);
+    argv = split_line(buffer);
+	while (argv[i])
 	{
-		printf("#CisFun :) >$: ");
-		getline(&buffer, &bufsize, stdin);
-        argv = split_line(buffer);
-		pid = fork();
-        if (pid < 0)
-        { /* error occurred */ 
-            fprintf(stderr, "Fork Failed"); 
-            return 1;
-        }
-        else if (pid == 0)
-        { /* child process */
-            execve(argv[0], argv, NULL);
-        }
-        else
-        { /* parent process */
-            /* parent will wait for the child to complete */
-            wait(NULL);
-        }
-	}
+		printf("%s\n", argv[i]);
+		i++;
+	} 
+	
 	return (0);	
 }
