@@ -17,8 +17,8 @@ int main(int ac, char **av)
     struct stat st;
 	char *token = NULL;
 	char *newpath = NULL;
-	char PATH[60]= "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin";
-	char *del = ":";
+	/*char PATH[60]= "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin";
+	char *del = ":";*/
 
     if (ac < 2)
     {
@@ -26,24 +26,24 @@ int main(int ac, char **av)
         return (1);
     }
     i = 1;
-		token = strtok(PATH, del);
-		newpath = (char *)malloc(sizeof(char)*(strlen(token) + strlen(av[i])));
-		if (!newpath)
-			return (-1);
+	token = "/bin/";/*strtok(PATH, del);*/
+	newpath = malloc(sizeof(char)*1024);
+	if (!newpath)
+		return (-1);
+	
+	strcpy(newpath, token);
 	while (av[i])
 	{
-		strcpy(newpath, token);
 		while (token != NULL)
 		{
 			strcat(newpath, av[i]);
-        	if (stat(newpath, &st) == 0)
-        	{
-            	printf("%s\n",newpath);
+        		if (stat(newpath, &st) == 0)
+        		{
+            			printf("%s\n",newpath);
 				break;
-        	}
+        		}
 			token = strtok(NULL, ":");
-			strcpy(newpath, token);
-    	}
+    		}
 		i++;
 	}
     return (0);
