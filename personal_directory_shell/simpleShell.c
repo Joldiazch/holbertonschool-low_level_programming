@@ -6,8 +6,8 @@
 #include <string.h>
 
 #define BUFSIZE 1024
-#define DELIM " \t\r\n\a"
-char **split_line(char *line)
+/* #define DELIM " \t\r\n\a" */
+char **split_line(char *line, char *DEL)
 {
   int bufsize = BUFSIZE, position = 0;
   char **tokens = malloc(bufsize * sizeof(char*));
@@ -18,7 +18,7 @@ char **split_line(char *line)
     exit(1);
   }
 
-  token = strtok(line, DELIM);
+  token = strtok(line, DEL);
   while (token != NULL) {
     tokens[position] = token;
     position++;
@@ -32,7 +32,7 @@ char **split_line(char *line)
       }
     }
 
-    token = strtok(NULL, DELIM);
+    token = strtok(NULL,DEL);
   }
   tokens[position] = NULL;
   return tokens;
@@ -57,7 +57,7 @@ int main()
 	{
 		printf("#CisFun :) >$: ");
 		getline(&buffer, &bufsize, stdin);
-        argv = split_line(buffer);
+        argv = split_line(buffer, " \t\r\n\a");
 		pid = fork();
         if (pid < 0)
         { /* error occurred */ 
