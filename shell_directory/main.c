@@ -5,8 +5,8 @@ int main()
 	char *buf, **argv;
 	char del[5] = " \t\r\n\a";
 	pid_t child;
-	int status;
-	
+	int status, i = 0;
+
 	while (1)
 	{
 		buf = _read_line();
