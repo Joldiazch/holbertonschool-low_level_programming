@@ -2,15 +2,16 @@
 
 int main()
 {
-	char *buf, **argv;
-	char del[5] = " \t\r\n\a";
+	char **argv, *buff;
+	char del[7] = " \t\r\n\a";
 	pid_t child;
 	int status, i = 0;
+	ssize_t c = 1;
 
-	while (1)
+	while (c != -1)
 	{
-		buf = _read_line();
-		argv = _tokenizar(buf, del);
+		buff = _read_line(&c);
+		argv = _tokenizar(buff, del);
 		child = fork();
 		if (child == -1)
 		{
@@ -31,5 +32,6 @@ int main()
 		i++;
 	}
 	free(argv);
+	free(buff);
 	return (0);
 }
