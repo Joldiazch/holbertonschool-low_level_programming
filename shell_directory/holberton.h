@@ -9,4 +9,5 @@
 
 char **_tokenizar(char *line, char *DEL);
 char *_read_line(ssize_t * c);
+char *_getenv(const char *pathname, char **env);
 #endif /* HOLBERTON_H */

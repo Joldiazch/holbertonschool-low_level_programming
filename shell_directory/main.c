@@ -1,6 +1,6 @@
 #include "holberton.h"
 
-int main()
+int main(/* int gc, char **ag, char **env */)
 {
 	char **argv, *buff;
 	char del[7] = " \t\r\n\a";
