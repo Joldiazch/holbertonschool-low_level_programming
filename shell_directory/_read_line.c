@@ -8,6 +8,10 @@ char *_read_line(ssize_t *c)
 	write(STDOUT_FILENO, "MiShellaDa $: ", 15);
 	read = malloc(size * sizeof(char));
 	*c = getline(&read, &size, stdin);
-	(*c == -1) ? (write(STDOUT_FILENO, "\n", 1)) : (*c = *c);
+	if (*c == EOF)
+	{
+		write(STDOUT_FILENO, "exit\n", 5);
+		exit(EXIT_FAILURE);
+	}
 	return(read);
 }

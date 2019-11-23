@@ -3,17 +3,24 @@
 char * _concatenar(list_t **head, char * comand)
 {
 	char *pepito, *comandslash;
-	if (*comand != '/')
+	list_t *temporal;
+	
+	temporal = *head;
+
+	if (comand != NULL)
 	{
-		while ((*head)->next)
+		if (*comand != '/')
 		{
-			comandslash = str_concat("/",comand);
-			pepito = str_concat((*head)->str, comandslash);
-			if (!access(pepito, X_OK))
+			while ((temporal)->next)
 			{
-				return(pepito);
+				comandslash = str_concat("/",comand);
+				pepito = str_concat((temporal)->str, comandslash);
+				if (!access(pepito, X_OK))
+				{
+					return(pepito);
+				}
+				temporal = (temporal)->next;
 			}
-			*head = (*head)->next;
 		}
 	}
 	return(comand);
