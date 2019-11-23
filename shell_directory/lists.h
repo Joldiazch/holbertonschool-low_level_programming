@@ -1,12 +1,8 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
+#ifndef list_h
+#define list_h
 #include <stdlib.h>
 #include <string.h>
-#include <signal.h>
+#include <stdio.h>
 /**
 * struct list_s - singly linked list
 * @str: string - (malloc'ed string)
@@ -27,10 +23,4 @@ size_t list_len(const list_t *h);
 list_t *add_node(list_t **head, const char *str);
 list_t *add_node_end(list_t **head, const char *str);
 void free_list(list_t *head);
-char **_tokenizar(char *line, char *DEL);
-char *_read_line(ssize_t * c);
-char *_getenv(const char *pathname, char **env);
-void build_list(char **paths, list_t **head);
-char *str_concat(char *s1, char *s2);
-char * _concatenar(list_t **head, char * comand);
-#endif /* HOLBERTON_H */
+#endif
