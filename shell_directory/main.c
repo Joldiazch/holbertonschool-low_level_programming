@@ -5,8 +5,8 @@ int main(int gc, char **argv, char **env)
 	char **paths, *buff, *search_paths;
 	char del[7] = " \t\r\n\a";
 	pid_t child;
-	int status, i = 0;
-	ssize_t c = 1;
+	int status/* , i = 0 */;
+	ssize_t c = 0;
 	list_t *head;
 	(void) gc;
 
@@ -17,6 +17,18 @@ int main(int gc, char **argv, char **env)
 	while (1)
 	{
 		buff = _read_line(&c);
+		if (c == EOF)
+		{
+ 			/* while (argv[i])
+			{
+				free(argv[i]);
+				i++;
+			}
+			free(argv); */
+			free_list(head);
+			write(STDOUT_FILENO, "exit\n", 5);
+			exit(EXIT_FAILURE);
+		}
 		argv = _tokenizar(buff, del);
 		argv[0] = _concatenar(&head, argv[0]);
 		child = fork();
@@ -37,12 +49,5 @@ int main(int gc, char **argv, char **env)
 			wait(&status);
 		}
 	}
-	while (argv[i])
-	{
-		free(argv[i]);
-		i++;
-	}
-	free(argv);
-	free(buff);
 	return (0);
 }
