@@ -3,7 +3,7 @@
 char *_read_line(ssize_t *c)
 {
 	char *read;
-	size_t size = 1024;
+	size_t size = 100;
 
 	write(STDOUT_FILENO, "MiShellaDa $: ", 15);
 	read = malloc(size * sizeof(char));
