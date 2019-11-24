@@ -19,12 +19,9 @@ int main(int gc, char **argv, char **env)
 		buff = _read_line(&c);
 		if (c == EOF)
 		{
- 			/* while (argv[i])
-			{
-				free(argv[i]);
-				i++;
-			}
-			free(argv); */
+			/* free(search_paths); */
+			free(buff);
+			free(paths);
 			free_list(head);
 			write(STDOUT_FILENO, "exit\n", 5);
 			exit(EXIT_FAILURE);
@@ -48,7 +45,6 @@ int main(int gc, char **argv, char **env)
 		{
 			wait(&status);
 		}
-		free(argv);
 	}
 	return (0);
 }
