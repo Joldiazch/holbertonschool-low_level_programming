@@ -39,9 +39,6 @@ int main(int gc, char **argv, char **env)
 			{
 				perror("Mishellada");
 			}
-			free(buff);
-			free(paths);
-			free_list(head);
 			exit(EXIT_FAILURE);
 		}
 		else
