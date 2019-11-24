@@ -48,6 +48,7 @@ int main(int gc, char **argv, char **env)
 		{
 			wait(&status);
 		}
+		free(argv);
 	}
 	return (0);
 }

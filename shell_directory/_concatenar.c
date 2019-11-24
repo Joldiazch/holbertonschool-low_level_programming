@@ -17,6 +17,7 @@ char * _concatenar(list_t **head, char * comand)
 				pepito = str_concat((temporal)->str, comandslash);
 				if (!access(pepito, X_OK))
 				{
+					free(comandslash);
 					return(pepito);
 				}
 				temporal = (temporal)->next;
