@@ -30,5 +30,6 @@ char **_tokenizar(char *line, char *DEL)
     token = strtok(NULL,DEL);
   }
   tokens[position] = NULL;
+  free(token);
   return tokens;
 }

@@ -13,8 +13,8 @@ char * _concatenar(list_t **head, char * comand)
 		{
 			while ((temporal)->next)
 			{
-				comandslash = str_concat("/",comand);
-				pepito = str_concat((temporal)->str, comandslash);
+				comandslash = string_nconcat("/", comand, strlen(comand));
+				pepito = string_nconcat((temporal)->str, comandslash, strlen(comandslash));
 				if (!access(pepito, X_OK))
 				{
 					free(comandslash);

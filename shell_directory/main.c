@@ -9,6 +9,7 @@ int main(int gc, char **argv, char **env)
 	ssize_t c = 0;
 	list_t *head;
 	(void) gc;
+	argv = NULL;
 
 	head = NULL;
 	search_paths = _getenv("PATH", env);
@@ -19,10 +20,10 @@ int main(int gc, char **argv, char **env)
 		buff = _read_line(&c);
 		if (c == EOF)
 		{
-			/* free(search_paths); */
-			free(buff);
+			
 			free(paths);
 			free_list(head);
+			free(buff);
 			write(STDOUT_FILENO, "exit\n", 5);
 			exit(EXIT_FAILURE);
 		}

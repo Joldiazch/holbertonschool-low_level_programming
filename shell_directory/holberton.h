@@ -33,4 +33,5 @@ char *_getenv(const char *pathname, char **env);
 void build_list(char **paths, list_t **head);
 char *str_concat(char *s1, char *s2);
 char * _concatenar(list_t **head, char * comand);
+char *string_nconcat(char *s1, char *s2, unsigned int n);
 #endif /* HOLBERTON_H */
