@@ -2,7 +2,8 @@
 
 int main(int gc, char **argv, char **env)
 {
-	char **paths, *buff, *search_paths;
+
+	char **paths, *buff, *search_paths/* , *p */;
 	char del[7] = " \t\r\n\a";
 	pid_t child;
 	int status/* , i = 0 */;
@@ -18,12 +19,15 @@ int main(int gc, char **argv, char **env)
 	while (1)
 	{
 		buff = _read_line(&c);
+		if (c == 1)
+		{
+			free(buff);
+			continue;
+		}
 		if (c == EOF)
 		{
-			
 			free(paths);
 			free_list(head);
-			free(buff);
 			write(STDOUT_FILENO, "exit\n", 5);
 			exit(EXIT_FAILURE);
 		}
@@ -45,6 +49,9 @@ int main(int gc, char **argv, char **env)
 		else
 		{
 			wait(&status);
+			free(argv[0]);
+			free(buff);
+			free(argv);
 		}
 	}
 	return (0);

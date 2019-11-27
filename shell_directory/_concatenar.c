@@ -2,7 +2,7 @@
 
 char * _concatenar(list_t **head, char * comand)
 {
-	char *pepito, *comandslash;
+	char *newpath, *comandslash;
 	list_t *temporal;
 	
 	temporal = *head;
@@ -14,15 +14,18 @@ char * _concatenar(list_t **head, char * comand)
 			while ((temporal)->next)
 			{
 				comandslash = string_nconcat("/", comand, strlen(comand));
-				pepito = string_nconcat((temporal)->str, comandslash, strlen(comandslash));
-				if (!access(pepito, X_OK))
+				newpath = string_nconcat((temporal)->str, comandslash, strlen(comandslash));
+				if (!access(newpath, X_OK))
 				{
 					free(comandslash);
-					return(pepito);
+					return(newpath);
 				}
+				free(newpath);
+				free(comandslash);
 				temporal = (temporal)->next;
 			}
 		}
+		newpath = strdup(comand);
 	}
-	return(comand);
+	return(newpath);
 }
