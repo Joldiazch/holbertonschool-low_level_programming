@@ -38,19 +38,18 @@ dlistint_t *get_dnodeint(dlistint_t *head, unsigned int index)
 }
 
 /**
- * insert_dnodeint_at_index - inserts a new node at a given position
- * @h: pinter to pointer of head of list.
- * @idx: index of node to add..
- * @n: integer to save in node
- * Return: new node.
+ * delete_dnodeint_at_index - inserts a new node at a given position
+ * @head: pinter to pointer of head of list.
+ * @index: index of node to add..
+ * Return: 1 if it succeeded, -1 if it failed
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *tmp;
 
-	if (head == NULL)
+	if (head == NULL || *head == NULL)
 		return (-1);
-	if (index == 0 && *head)
+	if (index == 0 && (*head)->next)
 	{
 		*head = (*head)->next;
 		free((*head)->prev);
@@ -65,6 +64,12 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		tmp = tmp->prev;
 		free(tmp->next);
 		tmp->next = NULL;
+		return (1);
+	}
+	if (!((*head)->next))
+	{
+		free(*head);
+		*head = NULL;
 		return (1);
 	}
 	(tmp->prev)->next = tmp->next;
