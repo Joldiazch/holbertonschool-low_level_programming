@@ -1,10 +1,9 @@
 #include "lists.h"
 /**
- * add_dnodeint - doubly linked list
- * @n: integer
- *
- * Description: doubly linked list node structure
- * for Holberton project
+ * add_dnodeint - adds a new node at the beginning of a dlistint_t list.
+ * @head: pinter to head of list
+ * @n: integer to save in node.
+ * Return: new node.
  */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
@@ -12,14 +11,14 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 
 	new = malloc(sizeof(dlistint_t));
 	if (head == NULL || new == NULL)
-		return(NULL);
+		return (NULL);
 	if (*head == NULL)
 	{
 		new->next = NULL;
 		new->prev = NULL;
 		new->n = n;
 		*head = new;
-		return(*head);
+		return (*head);
 	}
 	(*head)->prev = new;
 	new->next = *head;

@@ -1,14 +1,13 @@
 #include "lists.h"
 /**
- * add_dnodeint - doubly linked list
- * @n: integer
+ * free_dlistint - doubly linked list
+ * @head: pointer to head of list.
  *
- * Description: doubly linked list node structure
- * for Holberton project
+ * Return: Void.
  */
 void free_dlistint(dlistint_t *head)
 {
- 	if (head == NULL)
+	if (head == NULL)
 		return;
 	while (head->next)
 	{

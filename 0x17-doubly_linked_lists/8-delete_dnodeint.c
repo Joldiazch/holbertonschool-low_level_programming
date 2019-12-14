@@ -44,24 +44,31 @@ dlistint_t *get_dnodeint(dlistint_t *head, unsigned int index)
  * @n: integer to save in node
  * Return: new node.
  */
-dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
+int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *tmp, *new;
+	dlistint_t *tmp;
 
-	new = malloc(sizeof(dlistint_t));
-	if (h == NULL || new == NULL)
-		return (NULL);
-	if (idx == 0)
-		return (add_dnodeint(h, n));
-	if (idx == len(*h))
-		return (add_dnodeint_end(h, n));
-	tmp = get_dnodeint(*h, idx);
+	if (head == NULL)
+		return (-1);
+	if (index == 0 && *head)
+	{
+		*head = (*head)->next;
+		free((*head)->prev);
+		(*head)->prev = NULL;
+		return (1);
+	}
+	tmp = get_dnodeint(*head, index);
 	if (tmp == NULL)
-		return (NULL);
-	(tmp->prev)->next = new;
-	new->next = tmp;
-	new->prev = tmp->prev;
-	tmp->prev = new;
-	new->n = n;
-	return (new);
+		return (-1);
+	if (index == len(*head))
+	{
+		tmp = tmp->prev;
+		free(tmp->next);
+		tmp->next = NULL;
+		return (1);
+	}
+	(tmp->prev)->next = tmp->next;
+	(tmp->next)->prev = tmp->prev;
+	free(tmp);
+	return (1);
 }
