@@ -19,7 +19,6 @@ int add_nodeint(hash_node_t *head, const char *key, const char *value)
 	do {
 		if (strcmp(temp->key, key) == 0)
 		{
-			free(temp->value);
 			temp->value = strdup(value);
 			return (1);
 		}
