@@ -21,10 +21,11 @@ int add_nodeint(hash_node_t *head, const char *key, const char *value)
 		{
 			free(temp->value);
 			temp->value = strdup(value);
+			free(new);
 			return (1);
 		}
 		temp = temp->next;
-	} while (temp == NULL);
+	} while (temp != NULL);
 	new->key = strdup(key);
 	new->value = strdup(value);
 	new->next = head;
