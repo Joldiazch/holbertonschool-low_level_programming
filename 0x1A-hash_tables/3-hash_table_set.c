@@ -19,13 +19,14 @@ int add_nodeint(hash_node_t *head, const char *key, const char *value)
 	do {
 		if (strcmp(temp->key, key) == 0)
 		{
-			temp->value = (char *) value;
+			free(temp->value);
+			temp->value = strdup(value);
 			return (1);
 		}
 		temp = temp->next;
 	} while (temp == NULL);
-	new->key = (char *) key;
-	new->value = (char *) value;
+	new->key = strdup(key);
+	new->value = strdup(value);
 	new->next = head;
 	/* To the "previus" head, becouse new will be the new head */
 	head = new;
@@ -52,8 +53,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht->array[idx] == NULL)
 	{
 		ht->array[idx] = malloc(sizeof(hash_node_t *));
-		ht->array[idx]->key = (char *) key;
-		ht->array[idx]->value = (char *) value;
+		ht->array[idx]->key = strdup(key);
+		ht->array[idx]->value = strdup(value);
 		ht->array[idx]->next = NULL;
 		return (1);
 	}
