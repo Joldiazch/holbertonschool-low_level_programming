@@ -8,21 +8,30 @@
 * Return: pointer to new node.
 *
 */
-hash_node_t *add_nodeint(hash_node_t *head, char *key, char *value)
+int add_nodeint(hash_node_t *head, const char *key, const char *value)
 {
-	hash_node_t *temp;
+	hash_node_t *new, *temp = head;
 
-	temp = malloc(sizeof(hash_node_t));
-	if (!temp) /* if temp == NULL */
-		return (NULL);
+	new = malloc(sizeof(hash_node_t));
+	if (!new) /* if new == NULL */
+		return (0);
 
-	temp->key = key;
-	temp->value = value;
-	temp->next = head;
-	/* To the "previus" head, becouse temp will be the new head */
-	head = temp;
-	/* new head is temp */
-	return (temp);
+	do {
+		if (strcmp(temp->key, key) == 0)
+		{
+			free(temp->value);
+			temp->value = strdup(value);
+			return (1);
+		}
+		temp = temp->next;
+	} while (temp == NULL);
+	new->key = strdup(key);
+	new->value = strdup(value);
+	new->next = head;
+	/* To the "previus" head, becouse new will be the new head */
+	head = new;
+	/* new head is new */
+	return (1);
 }
 
 /**
@@ -44,13 +53,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht->array[idx] == NULL)
 	{
 		ht->array[idx] = malloc(sizeof(hash_node_t *));
-		ht->array[idx]->key = (char *) key;
-		ht->array[idx]->value = (char *) value;
+		ht->array[idx]->key = strdup(key);
+		ht->array[idx]->value = strdup(value);
 		ht->array[idx]->next = NULL;
 		return (1);
 	}
-	else if (add_nodeint(ht->array[idx], (char *)key, (char *)value) == NULL)
-		return (0);
 	else
-		return (1);
+		return (add_nodeint(ht->array[idx], key, value));
 }
