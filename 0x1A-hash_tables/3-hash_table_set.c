@@ -21,7 +21,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht->array[idx] == NULL)
 	{
 		ht->array[idx] = new_node;
-		ht->array[idx]->key = (char *) key;
+		ht->array[idx]->key = strdup(key);
 		ht->array[idx]->value = strdup(value);
 		ht->array[idx]->next = NULL;
 		return (1);
@@ -33,7 +33,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(new_node);
 		return (1);
 	}
-	new_node->key = (char *) key;
+	new_node->key = strdup(key);
 	new_node->value = strdup(value);
 	new_node->next = ht->array[idx];
 	/* To the "previus" head, becouse new will be the new head */
