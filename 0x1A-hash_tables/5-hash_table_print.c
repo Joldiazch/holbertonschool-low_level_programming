@@ -10,21 +10,20 @@ void hash_table_print(const hash_table_t *ht)
 	int indicator = 0;
 	unsigned long int i = 0;
 
-	if (ht != NULL)
+	if (ht == NULL)
+		return;
+	printf("{");
+	for (i = 0; i < ht->size; i++)
 	{
-		printf("{");
-		for (i = 0; i < ht->size; i++)
+		if (ht->array[i] != NULL)
 		{
-			if (ht->array[i] != NULL)
-			{
-				if (indicator != 0)
-					printf(", ");
-				printf("'%s': '%s'", ht->array[i]->key, ht->array[i]->value);
-				if (ht->array[i]->next != NULL)
-					printf("'%s': '%s'", ht->array[i]->next->key, ht->array[i]->next->value);
-				indicator = 1;
-			}
+			if (indicator != 0)
+				printf(", ");
+			printf("'%s': '%s'", ht->array[i]->key, ht->array[i]->value);
+			if (ht->array[i]->next != NULL)
+				printf("'%s': '%s'", ht->array[i]->next->key, ht->array[i]->next->value);
+			indicator = 1;
 		}
-		printf("}\n");
 	}
+	printf("}\n");
 }
