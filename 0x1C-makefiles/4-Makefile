@@ -1,17 +1,14 @@
-CC=gcc
-SRC=holberton.c main.c
+CC = gcc
+SRC = main.c holberton.c
+OBJ = $(SRC:.c=.o)
 NAME = holberton
-OBJ= $(SRC:.c=.o)
-RM=rm
-all: ${OBJ}
-	${CC} ${OBJ} -o ${NAME}
-
+RM = rm
+CFLAGS = -Wall -Werror -Wextra -pedantic
+all: $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 clean:
-	${RM} -f *~ ${NAME}
-
+	$(RM) -f *~ $(NAME)
 oclean:
-	${RM} -f ${OBJ}
-
-fclean: clean  oclean
-
+	$(RM) -f $(OBJ)
+fclean: clean oclean
 re: oclean all
