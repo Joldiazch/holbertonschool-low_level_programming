@@ -3,9 +3,8 @@ SRC=holberton.c main.c
 NAME = holberton
 OBJ= $(SRC:.c=.o)
 RM=rm
-CFLAGS=-Wall -Werror -Wextra -pedantic
 all: ${OBJ}
-	${CC} ${CFLAGS} ${OBJ} -o ${NAME}
+	${CC} ${OBJ} -o ${NAME}
 
 clean:
 	${RM} -f *~ ${NAME}
