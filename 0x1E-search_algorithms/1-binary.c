@@ -12,20 +12,23 @@ int search(int *array, int start, int end, int value)
 {
 	int half = (end - start) / 2, i;
 
+	if (end >= start)
+	{
+		printf("Searching in array: ");
+		for (i = start; i < end; i++)
+			printf("%d, ", array[i]);
+		printf("%d\n", array[end]);
+	}
+
 	if (!array || end < start)
 		return (-1);
-
-	printf("Searching in array: ");
-	for (i = start; i < end; i++)
-		printf("%d, ", array[i]);
-	printf("%d\n", array[end]);
 
 	if (value == array[start + half])
 		return (start + half);
 	else if (value > array[start + half])
 		return (search(array, start + half + 1, end, value));
 	else
-		return (search(array, start, half - 1, value));
+		return (search(array, start, start + half - 1, value));
 }
 
 /**
