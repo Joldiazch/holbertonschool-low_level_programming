@@ -8,17 +8,17 @@
 * @value: value to serch
 * Return: index of match or -1 other case
 */
-int search(int *array, size_t start, size_t end, int value)
+int search(int *array, int start, int end, int value)
 {
-	size_t half = (end - start) / 2, i;
+	int half = (end - start) / 2, i;
+
+	if (!array || end < start)
+		return (-1);
 
 	printf("Searching in array: ");
 	for (i = start; i < end; i++)
 		printf("%d, ", array[i]);
 	printf("%d\n", array[end]);
-
-	if (!array || end - start < 1)
-		return (-1);
 
 	if (value == array[start + half])
 		return (start + half);
@@ -39,5 +39,3 @@ int binary_search(int *array, size_t size, int value)
 {
 	return (search(array, 0, size - 1, value));
 }
-
-
